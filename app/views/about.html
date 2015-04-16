@@ -1,0 +1,13 @@
+<h1>this is the about view</h1>
+
+{{about.thing}}
+
+<input type="text" ng-model="about.thing">
+
+<div ng-if="about.thing.length > 10">
+	<h3>Hello you can see me</h3>
+</div>
+
+<button ui-sref="about.info">View Info</button>
+
+<ui-view></ui-view>

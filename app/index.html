@@ -3,10 +3,12 @@
 	<head>
 		<title>My Sample Application</title>
 		<link href="/styles/all.css" rel="stylesheet" type="text/css">
+		<base href="/">
 	</head>
 
-	<body>
-	this is the body of the page!
+	<body ng-app="sampleApp">
+
+		<ui-view></ui-view>
 
 
 	{{#each scripts}}

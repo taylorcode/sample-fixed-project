@@ -1,1 +1,3 @@
-angular.module("sampleApp:partials", []).run(["$templateCache", function($templateCache) {$templateCache.put("test","<div></div>");}]);
+angular.module("sampleApp:partials", []).run(["$templateCache", function($templateCache) {$templateCache.put("about","<h1>this is the about view</h1>{{about.thing}} <input type=\"text\" ng-model=\"about.thing\"><div ng-if=\"about.thing.length > 10\"><h3>Hello you can see me</h3></div><button ui-sref=\"about.info\">View Info</button><ui-view></ui-view>");
+$templateCache.put("about.info","<h2>this is additional info</h2>");
+$templateCache.put("home","<h1>test view!</h1><a ui-sref=\"about\">Go to about view</a>");}]);

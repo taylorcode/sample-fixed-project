@@ -23,7 +23,7 @@ app.use(express.static(sourceDir, {
 
 app.get('/*', function (req, res) {
 
-	glob(sourceDir + '/scripts/*.js', {}, function (err, files) {
+	glob(sourceDir + '/scripts/**/*.js', {}, function (err, files) {
 
 		var relativePaths = files.map(function (file) {
 			return convertAbsoluteScriptPathToRelative(file);
