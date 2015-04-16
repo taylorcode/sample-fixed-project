@@ -1,0 +1,1 @@
+angular.module("sampleApp:partials", []).run(["$templateCache", function($templateCache) {$templateCache.put("test","<div></div>");}]);
