@@ -1,6 +1,19 @@
 <h1>this is the about view</h1>
 
+{{about.stuff}}
+
+<input type="text" ng-model="about.stuff">
+
+<!-- directive example -->
+<fxd-menu fxd-value="about.stuff"></fxd-menu>
+
+<div fxd-menu></div>
+
+<div class="fxd-menu"></div>
+
 {{about.thing}}
+
+{{$state.current.data.title}}
 
 <input type="text" ng-model="about.thing">
 

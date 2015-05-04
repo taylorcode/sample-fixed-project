@@ -6,13 +6,28 @@ angular.module('sampleApp', ['sampleApp:partials', 'ui.router'])
 
 	$stateProvider.state('home', {
 		url: '/',
-		templateUrl: 'home'
+		templateUrl: 'home',
+		data: {
+			title: 'This is the title of the about State',
+			auth: {
+				permissions: ['user', 'admin', 'guest']
+			}
+		},
 	})
 
 	.state('about', {
 		url: '/about',
 		templateUrl: 'about',
 		controller: 'AboutController as about',
+
+		data: {
+			title: 'This is the title of the about State',
+			auth: {
+				permissions: ['user', 'admin', 'guest']
+			}
+		},
+		thing: 'hello',
+
 		resolve: {
 			userAccountData: function ($q, $timeout, $http) {
 
@@ -28,8 +43,10 @@ angular.module('sampleApp', ['sampleApp:partials', 'ui.router'])
 
 				return defer.promise;
 
-				//return $http.get('/api/users')
 
+				return User.getInfo()
+
+				//return $http.get('/api/users')
 			}
 		}
 	})
@@ -41,8 +58,12 @@ angular.module('sampleApp', ['sampleApp:partials', 'ui.router'])
 
 })
 
-.run(function ($state, encryptService) {
+.run(function ($rootScope, $state, encryptService, stateAuthService) {
 
-	window.$state = $state
+	stateAuthService.listen();
+
+	window.$state = $state;
+
+	$rootScope.$state = $state;
 
 });
